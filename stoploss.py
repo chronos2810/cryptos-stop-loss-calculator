@@ -164,7 +164,7 @@ while True:
         print ('\n    *** Take Profit adjustment ***\n')
         print (' [*] Insert new value (Example: 9): ')
 
-        tp = int(input('\n >>> '))
+        tp = float(input('\n >>> '))
 
     # Stop Loss
     elif option == '5':
@@ -172,7 +172,7 @@ while True:
         print ('\n    *** Stop Loss adjustment ***\n')
         print (' [*] Insert new value (Example: 3): ')
 
-        sl = int(input('\n >>> '))
+        sl = float(input('\n >>> '))
 
     # Wrong Option
     else:
