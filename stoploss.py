@@ -4,11 +4,11 @@
 import os
 
 # Leverage xN
-lv = 10
+lv = 20
 # Stop Loss Percentage
-sl = 1
+sl = 3
 # Take Profit Percentage
-tp = 3
+tp = 9
 
 while True:
     os.system('clear')
