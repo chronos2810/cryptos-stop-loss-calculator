@@ -6,7 +6,7 @@ import os
 # Leverage xN
 lv = 10
 # Stop Loss Percentage
-sl = 3.33
+sl = 5
 # Take Profit Percentage
 tp = 10
 
