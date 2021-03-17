@@ -107,7 +107,20 @@ while True:
         rr1 = round(float( round(float((entry * tp1) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
         rr2 = round(float( round(float((entry * tp2) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
         rr3 = round(float( round(float((entry * tp3) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
-        
+
+        # Price Difference Calculation
+        pd1 = round(float( round(float(target_price_sum_tp1 - entry), dc) * 100 ), 2)
+        pd2 = round(float( round(float(target_price_sum_tp2 - entry), dc) * 100 ), 2)
+        pd3 = round(float( round(float(target_price_sum_tp3 - entry), dc) * 100 ), 2)
+        pd4 = round(float( round(float(entry - target_price_sum_sl), dc) * 100 ), 2)
+
+        # Price Change Calculation
+        pc1 = round(float( pd1 / entry ), 2)
+        pc2 = round(float( pd2 / entry ), 2)
+        pc3 = round(float( pd3 / entry ), 2)
+        pc4 = round(float( pd4 / entry ), 2)
+
+        # STDOUT
         print ('\n [info] Current values:\n')
 
         print ('   - Leverage: x' + str(lv))
@@ -124,6 +137,11 @@ while True:
         print ('\n [+] Risk/Reward Ratio 1: ', rr1)
         print (' [+] Risk/Reward Ratio 2: ', rr2)
         print (' [+] Risk/Reward Ratio 3: ', rr3)
+
+        print ('\n [+] Real Price Change for Take Profit 1: ', str(pc1) + '%')
+        print (' [+] Real Price Change for Take Profit 2: ', str(pc2) + '%')
+        print (' [+] Real Price Change for Take Profit 3: ', str(pc3) + '%')
+        print (' [+] Real Price Change for Stop Loss: ', str(pc4) + '%')
 
         input('\n [*] Press any key to continue...')
         os.system('clear')
@@ -178,6 +196,19 @@ while True:
         rr2 = round(float( round(float((entry * tp2) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
         rr3 = round(float( round(float((entry * tp3) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
         
+        # Price Difference Calculation
+        pd1 = round(float( round(float(entry - target_price_sum_tp1), dc) * 100 ), 2)
+        pd2 = round(float( round(float(entry - target_price_sum_tp2), dc) * 100 ), 2)
+        pd3 = round(float( round(float(entry - target_price_sum_tp3), dc) * 100 ), 2)
+        pd4 = round(float( round(float(target_price_sum_sl - entry), dc) * 100 ), 2)
+
+        # Price Change Calculation
+        pc1 = round(float( pd1 / entry ), 2)
+        pc2 = round(float( pd2 / entry ), 2)
+        pc3 = round(float( pd3 / entry ), 2)
+        pc4 = round(float( pd4 / entry ), 2)
+
+        # STDOUT
         print ('\n [info] Current values:\n')
 
         print ('   - Leverage: x' + str(lv))
@@ -192,6 +223,11 @@ while True:
         print ('\n [+] Risk/Reward Ratio 1: ', rr1)
         print (' [+] Risk/Reward Ratio 2: ', rr2)
         print (' [+] Risk/Reward Ratio 3: ', rr3)
+
+        print ('\n [+] Real Price Change for Take Profit 1: ', str(pc1) + '%')
+        print (' [+] Real Price Change for Take Profit 2: ', str(pc2) + '%')
+        print (' [+] Real Price Change for Take Profit 3: ', str(pc3) + '%')
+        print (' [+] Real Price Change for Stop Loss: ', str(pc4) + '%')
 
         input('\n [*] Press any key to continue...')
         os.system('clear')
