@@ -19,8 +19,11 @@ lv = 20
 
 # Stop Loss Percentage
 sl = 20
+
 # Take Profit Percentage
-tp = 40
+tp1 = 20
+tp2 = 40
+tp3 = 60
 
 ########
 # Main #
@@ -33,14 +36,18 @@ while True:
     print (' - Input 1 for Long Position')
     print (' - Input 2 for Short Position')
     print (' - Input 3 for Leverage Adjustment (Default x20)')
-    print (' - Input 4 for Take Profit Adjustment (Default +40%)')
-    print (' - Input 5 for Stop Loss Adjustment (Default -20%)')
-    print (' - Input 6 for Decimals Adjustment (Default 4, for example: 1.0239)')
+    print (' - Input 4 for Stop Loss Adjustment (Default -20%)')
+    print (' - Input 5 for Take Profit 1 Adjustment (Default +20%)')
+    print (' - Input 6 for Take Profit 2 Adjustment (Default +40%)')
+    print (' - Input 7 for Take Profit 3 Adjustment (Default +60%)')
+    print (' - Input 8 for Decimals Adjustment (Default 4, for example: 1.0239)')
 
     print ('\n [info] Current values:\n')
 
     print ('   - Leverage: x' + str(lv))
-    print ('   - Take Profit: +' + str(tp) + '%')
+    print ('   - Take Profit 1: +' + str(tp1) + '%')
+    print ('   - Take Profit 2: +' + str(tp2) + '%')
+    print ('   - Take Profit 3: +' + str(tp3) + '%')
     print ('   - Stop Loss:   -' + str(sl) + '%')
 
     option = input('\n >> ')
@@ -84,27 +91,39 @@ while True:
         # Example: 
         # How much is 10% of 50?
         # result = 5
-        # Multiplied by tp & sl
-        target_price_tp = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp
+        # Multiplied by tp1 & sl
+        target_price_tp1 = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp1
+        target_price_tp2 = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp2
+        target_price_tp3 = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp3
         target_price_sl = round(float((lv_one_percentage * one_percentage) / 100), dc) * sl
 
         # "entry" + "target_price" (tp & sl)
-        target_price_sum_tp = round(float(entry + target_price_tp), dc)
+        target_price_sum_tp1 = round(float(entry + target_price_tp1), dc)
+        target_price_sum_tp2 = round(float(entry + target_price_tp2), dc)
+        target_price_sum_tp3 = round(float(entry + target_price_tp3), dc)
         target_price_sum_sl = round(float(entry - target_price_sl), dc)
 
         # Risk/Reward Ratio Calculation
-        rr = round(float( round(float((entry * tp) / 100), dc) / round(float((entry * sl) / 100), dc) ), 2)
+        rr1 = round(float( round(float((entry * tp1) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
+        rr2 = round(float( round(float((entry * tp2) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
+        rr3 = round(float( round(float((entry * tp3) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
         
         print ('\n [info] Current values:\n')
 
         print ('   - Leverage: x' + str(lv))
-        print ('   - Take Profit: +' + str(tp) + '%')
+        print ('   - Take Profit 1: +' + str(tp1) + '%')
+        print ('   - Take Profit 2: +' + str(tp2) + '%')
+        print ('   - Take Profit 3: +' + str(tp3) + '%')
         print ('   - Stop Loss:   -' + str(sl) + '%')
 
-        print ('\n [+] Take Profit at:', target_price_sum_tp)
+        print ('\n [+] Take Profit 1 at:', target_price_sum_tp1)
+        print (' [+] Take Profit 2 at:', target_price_sum_tp2)
+        print (' [+] Take Profit 3 at:', target_price_sum_tp3)
         print (' [+] Stop Loss at:  ', target_price_sum_sl)
 
-        print (' [+] Risk/Reward Ratio: ', rr)
+        print ('\n [+] Risk/Reward Ratio 1: ', rr1)
+        print (' [+] Risk/Reward Ratio 2: ', rr2)
+        print (' [+] Risk/Reward Ratio 3: ', rr3)
 
         input('\n [*] Press any key to continue...')
         os.system('clear')
@@ -142,27 +161,37 @@ while True:
         # Example: 
         # How much is 10% of 50?
         # result = 5
-        # Multiplied by tp & sl
-        target_price_tp = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp
+        # Multiplied by tp1 & sl
+        target_price_tp1 = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp1
+        target_price_tp2 = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp2
+        target_price_tp3 = round(float((lv_one_percentage * one_percentage) / 100), dc) * tp3
         target_price_sl = round(float((lv_one_percentage * one_percentage) / 100), dc) * sl
 
-        # "entry" + "target_price" (tp & sl)
-        target_price_sum_tp = round(float(entry - target_price_tp), dc)
+        # "entry" + "target_price" (tp1 & sl)
+        target_price_sum_tp1 = round(float(entry - target_price_tp1), dc)
+        target_price_sum_tp2 = round(float(entry - target_price_tp2), dc)
+        target_price_sum_tp3 = round(float(entry - target_price_tp3), dc)
         target_price_sum_sl = round(float(entry + target_price_sl), dc)
 
         # Risk/Reward Ratio Calculation
-        rr = round(float( round(float((entry * tp) / 100), dc) / round(float((entry * sl) / 100), dc) ), 2)
+        rr1 = round(float( round(float((entry * tp1) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
+        rr2 = round(float( round(float((entry * tp2) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
+        rr3 = round(float( round(float((entry * tp3) / 100), dc) / round(float((entry * sl) / 100), dc) ), 1)
         
         print ('\n [info] Current values:\n')
 
         print ('   - Leverage: x' + str(lv))
-        print ('   - Take Profit: +' + str(tp) + '%')
+        print ('   - Take Profit: +' + str(tp1) + '%')
         print ('   - Stop Loss:   -' + str(sl) + '%')
 
-        print ('\n [+] Take Profit at:', target_price_sum_tp)
+        print ('\n [+] Take Profit 1 at:', target_price_sum_tp1)
+        print (' [+] Take Profit 2 at:', target_price_sum_tp2)
+        print (' [+] Take Profit 3 at:', target_price_sum_tp3)
         print (' [+] Stop Loss at:  ', target_price_sum_sl)
 
-        print (' [+] Risk/Reward Ratio: ', rr)
+        print ('\n [+] Risk/Reward Ratio 1: ', rr1)
+        print (' [+] Risk/Reward Ratio 2: ', rr2)
+        print (' [+] Risk/Reward Ratio 3: ', rr3)
 
         input('\n [*] Press any key to continue...')
         os.system('clear')
@@ -171,28 +200,44 @@ while True:
     elif option == '3':
         os.system('clear')
         print ('\n    *** Leverage adjustment ***\n')
-        print (' [*] Insert new value (Example: 20): ')
+        print (' [*] Insert new value (Example: 10): ')
 
         lv = int(input('\n >>> '))
 
-    # Take Profit 
+    # Stop Loss
     elif option == '4':
         os.system('clear')
-        print ('\n    *** Take Profit adjustment ***\n')
-        print (' [*] Insert new value (Example: 9): ')
-
-        tp = float(input('\n >>> '))
-
-    # Stop Loss
-    elif option == '5':
-        os.system('clear')
         print ('\n    *** Stop Loss adjustment ***\n')
-        print (' [*] Insert new value (Example: 3): ')
+        print (' [*] Insert new value (Example: 10): ')
 
         sl = float(input('\n >>> '))
 
-    # Decimals
+    # Take Profit 1
+    elif option == '5':
+        os.system('clear')
+        print ('\n    *** Take Profit 1 adjustment ***\n')
+        print (' [*] Insert new value (Example: 10): ')
+
+        tp1 = float(input('\n >>> '))
+
+    # Take Profit 2
     elif option == '6':
+        os.system('clear')
+        print ('\n    *** Take Profit 2 adjustment ***\n')
+        print (' [*] Insert new value (Example: 20): ')
+
+        tp2 = float(input('\n >>> '))
+
+    # Take Profit 3
+    elif option == '7':
+        os.system('clear')
+        print ('\n    *** Take Profit 3 adjustment ***\n')
+        print (' [*] Insert new value (Example: 30): ')
+
+        tp3 = float(input('\n >>> '))
+
+    # Decimals
+    elif option == '8':
         os.system('clear')
         print ('\n    *** Decimals adjustment ***\n')
         print (' [*] Insert new value (Example: 3): ')
