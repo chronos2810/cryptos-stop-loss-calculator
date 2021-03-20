@@ -11,16 +11,16 @@ import os
 # Variables #
 #############
 
-# Decimals
+# Default Decimals
 dc = 4
 
-# Leverage xN
+# Default Leverage xN
 lv = 10
 
-# Stop Loss Percentage
+# Default Stop Loss Percentage
 sl = float(10)
 
-# Take Profit Percentage
+# Default Take Profit Percentage
 tp1 = float(10)
 tp2 = float(20)
 tp3 = float(30)
