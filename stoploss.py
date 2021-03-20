@@ -212,7 +212,9 @@ while True:
         print ('\n [info] Current values:\n')
 
         print ('   - Leverage: x' + str(lv))
-        print ('   - Take Profit: +' + str(tp1) + '%')
+        print ('   - Take Profit 1: +' + str(tp1) + '%')
+        print ('   - Take Profit 2: +' + str(tp2) + '%')
+        print ('   - Take Profit 3: +' + str(tp3) + '%')
         print ('   - Stop Loss:   -' + str(sl) + '%')
 
         print ('\n [+] Take Profit 1 at:', target_price_sum_tp1)
@@ -278,7 +280,7 @@ while True:
         print ('\n    *** Decimals adjustment ***\n')
         print (' [*] Insert new value (Example: 3): ')
 
-        dc = float(input('\n >>> '))
+        dc = int(input('\n >>> '))
 
     # Wrong Option
     else:
