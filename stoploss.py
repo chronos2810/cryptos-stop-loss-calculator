@@ -12,10 +12,10 @@ import os
 #############
 
 # Default Decimals
-dc = 4
+dc = 2
 
 # Default Leverage xN
-lv = 10
+lv = 20
 
 # Default Stop Loss Percentage
 sl = float(10)
@@ -44,7 +44,7 @@ while True:
     print (' - Input 7 for Take Profit 1 Adjustment (Default +20%)')
     print (' - Input 8 for Take Profit 2 Adjustment (Default +40%)')
     print (' - Input 9 for Take Profit 3 Adjustment (Default +60%)')
-    print (' - Input 10 for Decimals Adjustment (Default 4, for example: 1.0239)')
+    print (' - Input 10 for Decimals Adjustment (Default 2, for example: 1.02)')
 
     print ('\n [info] Current values:\n')
 
