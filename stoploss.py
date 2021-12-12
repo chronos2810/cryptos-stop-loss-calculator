@@ -15,15 +15,15 @@ import os
 dc = 2
 
 # Default Leverage xN
-lv = 10
+lv = 20
 
 # Default Stop Loss Percentage
-sl = float(8)
+sl = float(20)
 
 # Default Take Profit Percentage
-tp1 = float(8)
-tp2 = float(16)
-tp3 = float(24)
+tp1 = float(20)
+tp2 = float(40)
+tp3 = float(60)
 
 ########
 # Main #
