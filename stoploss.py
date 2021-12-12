@@ -15,15 +15,15 @@ import os
 dc = 2
 
 # Default Leverage xN
-lv = 10
+lv = 20
 
 # Default Stop Loss Percentage
-sl = float(8)
+sl = float(40)
 
 # Default Take Profit Percentage
-tp1 = float(8)
-tp2 = float(16)
-tp3 = float(24)
+tp1 = float(40)
+tp2 = float(80)
+tp3 = float(120)
 
 ########
 # Main #
@@ -271,6 +271,9 @@ while True:
         lvpc2 = round(float( pdpr * 2 * lv ), 2)
         lvpc3 = round(float( pdpr * 3 * lv ), 2)
 
+        # Recommended leverage for TP1
+        dlv = round(float( tp1 / rpc1 ), 2)
+
         # STDOUT
         print ('\n [info] Current values:\n')
 
@@ -294,6 +297,8 @@ while True:
         print (' [+] Real Price Change for Take Profit 2: ', str(rpc2) + '%')
         print (' [+] Real Price Change for Take Profit 3: ', str(rpc3) + '%')
         print (' [+] Real Price Change for Stop Loss: ', str(rpc1) + '%')
+
+        print ('\n [+] Recommended Leverage based on Take Profit 1: ', str(dlv))
 
         input('\n [*] Press any key to continue...')
         os.system('clear')
@@ -331,6 +336,9 @@ while True:
         lvpc2 = round(float( pdpr * 2 * lv ), 2)
         lvpc3 = round(float( pdpr * 3 * lv ), 2)
 
+        # Recommended leverage for TP1
+        dlv = round(float( tp1 / rpc1 ), 2)
+
         # STDOUT
         print ('\n [info] Current values:\n')
 
@@ -354,6 +362,8 @@ while True:
         print (' [+] Real Price Change for Take Profit 2: ', str(rpc2) + '%')
         print (' [+] Real Price Change for Take Profit 3: ', str(rpc3) + '%')
         print (' [+] Real Price Change for Stop Loss: ', str(rpc1) + '%')
+
+        print ('\n [+] Recommended Leverage based on Take Profit 1: ', str(dlv))
 
         input('\n [*] Press any key to continue...')
         os.system('clear')
